@@ -23,3 +23,15 @@ const init = () => {
 };
 
 init();
+
+const getJokes = () => new Promise((resolve, reject) => {
+  fetch(`https://v2.jokeapi.dev/joke/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
