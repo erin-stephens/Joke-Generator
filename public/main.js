@@ -1,22 +1,22 @@
 // USE WITH FIREBASE AUTH
 // import ViewDirectorBasedOnUserAuthStatus from '../utils/viewDirector';
 import 'bootstrap'; // import bootstrap elements and js
+// import jokesData from '../api/jokesData';
 import '../styles/main.scss';
+// import getJokes from '../api/jokesData';
 
 const init = () => {
   document.querySelector('#app').innerHTML = `
-    <h1>HELLO! You are up and running!</h1>
-    <small>Open your dev tools</small><br />
-    <button class="btn btn-danger" id="click-me">Click ME!</button><br />
-    <hr />
-    <h2>These are font awesome icons:</h2>
-    <i class="fas fa-user fa-4x"></i> <i class="fab fa-github-square fa-5x"></i>
+    <button class="btn btn-danger" id="click-me">Get a Joke</button>
+    <div id="setup"></div>
+    <div id="punchline"></div>
   `;
-  console.warn('YOU ARE UP AND RUNNING!');
 
   document
     .querySelector('#click-me')
-    .addEventListener('click', () => console.warn('You clicked that button!'));
+    .addEventListener('click', () => {
+      console.warn('you clicked me');
+    });
 
   // USE WITH FIREBASE AUTH
   // ViewDirectorBasedOnUserAuthStatus();
@@ -24,14 +24,9 @@ const init = () => {
 
 init();
 
-const getJokes = () => new Promise((resolve, reject) => {
-  fetch(`https://v2.jokeapi.dev/joke/`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve(data))
-    .catch(reject);
-});
+// const getSetup = () => {
+// const setupDiv = document.querySelector('#setup');
+// setupDiv.innertext = `${setup}`;
+// };
+
+// getSetup();
